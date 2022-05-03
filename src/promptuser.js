@@ -36,11 +36,10 @@ const answers = [
     }
 ];
 
-
 async function promptUser() {
     const responses = await prompts(answers);
     return responses;
 }
 
-export {promptUser};
+export { promptUser };
 

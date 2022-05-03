@@ -1,17 +1,13 @@
 //FORMATTING THE WEEKS DATA INTO AN ARRAY OF STRINGS such as 'samedi 16 avril'
 const formatWeeks = (weeks) => {
-
     //remove the accent on "août" bc it interferes with regex expression
     weeks = weeks.replaceAll('û', 'u')
-
     //split the string between letters and numbers and rejoin it with spaces
     var arrayPostRegex = weeks.match(/[a-z]+|[^a-z]+/gi)
     weeks = arrayPostRegex.join(' ')
-
     //split the string where there are weekdays
     var tempArr = weeks.split(/sam|ven/)
     tempArr = formatMonths(tempArr)
-
     //add the weekday before each array element and remove the first empty one
     const weeksArr = []
     for (let i = 1; i < tempArr.length; i++) {
