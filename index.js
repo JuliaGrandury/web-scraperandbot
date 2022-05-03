@@ -1,9 +1,13 @@
 import { promptUser } from "./src/promptuser.js";
-import { logIn } from "./src/login.js";
-
+//import { logIn } from "./src/login.js";
 
 //prompt user
-const userInformation = promptUser();
+async = () => {
+    console.log('Prompting the User');
+    const userInput = promptUser();
+    console.log('Calling the Scraper');
+}
+
 
 //send prompt info to scraping
 

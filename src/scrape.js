@@ -27,18 +27,20 @@ const targetURL = 'https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0
         }
     })
     const $ = cheerio.load(pageData.html);
+    console.log(pageData);
 
-    const stageName = $('.aqua-titlepanel--title-large--text').text();
-    const stageLocation = $('.aqua-internship--city').text();
-    var stageWeeks = $('.aqua-calendar--date>p').text();
-    var stageRemainingSpots = $('.aqua-calendar--duration-last-places').text();
-    var stagePrices = $('.aqua-calendar--date-price-amount').text();
-    stageWeeks = formatWeeks(stageWeeks);
-    stageRemainingSpots = formatSpots(stageRemainingSpots);
-    stagePrices = formatPrices(stagePrices);
+    // const stageName = $('.aqua-titlepanel--title-large--text').text();
+    // const stageLocation = $('.aqua-internship--city').text();
+    // var stageWeeks = $('.aqua-calendar--date>p').text();
+    // var stageRemainingSpots = $('.aqua-calendar--duration-last-places').text();
+    // var stagePrices = $('.aqua-calendar--date-price-amount').text();
+    // console.log(stageName)
+    //stageWeeks = formatWeeks(stageWeeks);
+    //stageRemainingSpots = formatSpots(stageRemainingSpots);
+    //stagePrices = formatPrices(stagePrices);
 
-    const extracted = new Stage(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
-    printSummary(extracted);
+    //const extracted = new Stage(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
+    //printSummary(extracted);
 
     await browser.close();
 })();

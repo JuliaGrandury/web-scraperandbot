@@ -21,7 +21,7 @@ const answers = [
         warning: 'Please select a valid location in the list',
     },
     {
-        name: 'stage',
+        name: 'support',
         type: 'select',
         message: 'Please select a type of "support" from the following list:',
         choices: ['Catamaran', 'Dériveur', 'Windsurf'],

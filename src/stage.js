@@ -8,4 +8,17 @@ class Stage {
     }
 }
 
+class stageRequested extends Stage {
+    constructor(){
+
+    }
+}
+
+class stageFound extends Stage {
+
+}
+
+// returns user email, pw, array index of location, 
+//array index of support and array index of level 
+
 export default Stage;
