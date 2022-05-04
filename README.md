@@ -4,7 +4,7 @@
   <a href="https://www.glenans.asso.fr/">
     <img src="https://www.safetics.com/wp-content/uploads/2019/10/les-glenans-logo-01-1.png" alt="Logo" width="80" height="80">
   </a>
-  <h3 align="center">Web Scraper and Reservation Bot for "Les Glénans"</h3>
+  <h3 align="center">Web Scraper and Reservation Bot for "Les Glénans" Sailing School</h3>
   <p align="center">
     Try making your life easier by adapting this web scraper and reservation bot to your needs!
     <br />
