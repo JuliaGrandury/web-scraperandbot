@@ -1,50 +1,49 @@
 //import dependencies
 import puppeteer from "puppeteer";
 import cheerio from "cheerio";
-import Stage from './stage.js';
-import { formatWeeks, formatSpots, formatPrices, printSummary } from "./formatting.js";
+import { StageFound } from './stage.js';
+import { formatWeeks, formatSpots, formatPrices, fetchSummary } from "./formatting.js";
 
 
-//const targetURL = 'https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0Y0000099ZvTQAU?location=a070Y000003aCLJQA2';
-const targetURL = 'https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0Y0000099ZvTQAU?location=a070Y00000D4pfmQAB';
+async function scrapePage(url) {
+    try {
 
+        setTimeout(() => { console.log('Loading your results...'); }, 10);
+        setTimeout(() => { console.log('Scraping the web...'); }, 1000);
+        setTimeout(() => { console.log('Parsing through the html...'); }, 2000);
+        setTimeout(() => { console.log('Almost there...'); }, 3000);
 
-//note this is an immediately invoked function expression
-(async () => {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(url);
 
-    setTimeout(() => {console.log('Loading your results...'); }, 10);
-    setTimeout(() => {console.log('Scraping the web...'); }, 1000);
-    setTimeout(() => {console.log('Parsing through the html...'); }, 2000);
-    setTimeout(() => {console.log('Almost there...'); }, 3000);
+        const pageData = await page.evaluate(() => {
+            return {
+                html: document.documentElement.innerHTML
+            }
+        })
+        const $ = cheerio.load(pageData.html);
+        console.log(pageData);
 
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.goto(targetURL);
+        const stageName = $('.aqua-titlepanel--title-large--text').text();
+        const stageLocation = $('.aqua-internship--city').text();
+        const stageWeeks = formatWeeks($('.aqua-calendar--date>p').text());
+        const stageRemainingSpots = formatSpots($('.aqua-calendar--duration-last-places').text());
+        const stagePrices = formatPrices($('.aqua-calendar--date-price-amount').text());
 
-    const pageData = await page.evaluate(() => {
-        return{
-            html: document.documentElement.innerHTML
-        }
-    })
-    const $ = cheerio.load(pageData.html);
-    console.log(pageData);
+        //const extracted = new StageFound(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
+        //fetchSummary(extracted);
 
-    // const stageName = $('.aqua-titlepanel--title-large--text').text();
-    // const stageLocation = $('.aqua-internship--city').text();
-    // var stageWeeks = $('.aqua-calendar--date>p').text();
-    // var stageRemainingSpots = $('.aqua-calendar--duration-last-places').text();
-    // var stagePrices = $('.aqua-calendar--date-price-amount').text();
-    // console.log(stageName)
-    //stageWeeks = formatWeeks(stageWeeks);
-    //stageRemainingSpots = formatSpots(stageRemainingSpots);
-    //stagePrices = formatPrices(stagePrices);
+        await browser.close();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
-    //const extracted = new Stage(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
-    //printSummary(extracted);
+//DELETE THIS ONCE ALL FXNS ARE CONNECTED
+const targetURL = 'https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0Y0000099ZvTQAU?location=a070Y000003aCLJQA2';
+scrapePage(targetURL);
 
-    await browser.close();
-})();
-
-
-
+export { scrapePage };
 
