@@ -49,6 +49,7 @@
 [![Web Scraper And Reservation Bot Gif]](https://example.com)
 
 **Why?** For the last couple of years, I have been attending a sailing school to obtain my windsurfing instructor's degree. Every year, the process of signing up is time consuming and stressful as spots quickly decrease and the rules state you must renew your reservations - which entails going to the website, signing up for every course again and clicking through all of the verification - every three days until you are ready to make the financial commitment. To avoid this yearly time consuming and tedious process, I decided to build a web scraper and reservation bot that could deal with this for me.
+
 **TL;DR** I like to build things to make my life easier.
 
 **Features include:**
