@@ -1,5 +1,6 @@
 import { promptUser } from "./src/promptuser.js";
 import { StageRequested } from "./src/stage.js";
+import { makeLink } from "./src/makelink.js";
 
 promptUser()
     .then(function (userInput) {
@@ -8,10 +9,11 @@ promptUser()
             pw: userInput['password']
         }
         const currentStage = new StageRequested(userInput['location'], userInput['support'], userInput['level']);
-        stage.currentUrl = makeLink(currentStage);
-    }).then(function(){
-
+        
+        //setting url of stage instance to the url made in madeLink
+        StageRequested.currentUrl = makeLink(currentStage);
     })
+    //use StageRequested.currentUrl to send webscraper to right address now
 
 
 //send prompt info to scraping

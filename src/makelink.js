@@ -22,7 +22,7 @@ const types = {
     'Windsurf4FFV' : 'niveau-technique-4-ffv-windsurf--01t0Y0000099ZxXQAU'
 }
 
-const makeLink = (obj) => {
+export const makeLink = (obj) => {
 
     let loc = locationIds[obj['location']];
     let type = types[obj['support'] + obj['level']];
