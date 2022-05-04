@@ -65,10 +65,6 @@
 ### Built With
 
 * [Node.js](https://nodejs.org/en/)
-* [React.js](https://reactjs.org/)
-* [Bootstrap](https://getbootstrap.com)
-
-* [prompts](https://www.npmjs.com/package/prompts) which has great documentation
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
