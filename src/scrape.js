@@ -7,7 +7,7 @@ import { formatWeeks, formatSpots, formatPrices, fetchSummary } from "./formatti
 
 async function scrapePage(url) {
     try {
-        
+
         setTimeout(() => { console.log('Loading your results...'); }, 10);
         setTimeout(() => { console.log('Scraping the web...'); }, 1000);
         setTimeout(() => { console.log('Parsing through the html...'); }, 2000);
@@ -25,7 +25,7 @@ async function scrapePage(url) {
         const $ = cheerio.load(pageData.html);
         console.log(pageData);
 
-        const stageName = $('.aqua-titlepanel--title-large--text').text();        
+        const stageName = $('.aqua-titlepanel--title-large--text').text();
         const stageLocation = $('.aqua-internship--city').text();
         const stageWeeks = formatWeeks($('.aqua-calendar--date>p').text());
         const stageRemainingSpots = formatSpots($('.aqua-calendar--duration-last-places').text());
@@ -45,6 +45,5 @@ async function scrapePage(url) {
 const targetURL = 'https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0Y0000099ZvTQAU?location=a070Y000003aCLJQA2';
 scrapePage(targetURL);
 
-
-
+export { scrapePage };
 

@@ -1,5 +1,6 @@
 //FORMATTING THE WEEKS DATA INTO AN ARRAY OF STRINGS such as 'samedi 16 avril'
 const formatWeeks = (weeks) => {
+    
     //remove the accent on "août" bc it interferes with regex expression
     weeks = weeks.replaceAll('û', 'u');
 
