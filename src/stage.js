@@ -1,12 +1,15 @@
 class StageRequested {
-    constructor(support, location, level) {
-        this.support = support;
+    constructor(location, support, level) {
         this.location = location;
+        this.support = support;
         this.level = level;
         //url of requested course made from makeLink
-        this.stageUrl;
+        this.stageUrl = '';
         //map of weeks to prices and spots which are both strings
         this.weekInfo = new Map();
+    }
+    set currentUrl(stageUrl){
+        this.stageUrl = stageUrl;
     }
 }
 
@@ -23,4 +26,4 @@ class StageRequested {
 // returns user email, pw, array index of location, 
 //array index of support and array index of level 
 
-export { StageRequested, StageFound };
+export { StageRequested };

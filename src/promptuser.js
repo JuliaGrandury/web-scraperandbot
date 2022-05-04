@@ -17,7 +17,7 @@ const answers = [
         name: 'location',
         type: 'select',
         message: 'Please select a location from the following list:',
-        choices: ['Archipel de Glénan', 'Bonifacio', `Île d'Arz`, 'Marseillan', 'Paimpol'],
+        choices: ['Archipel de Glénan', `Île d'Arz`, 'Marseillan'],
         warning: 'Please select a valid location in the list',
     },
     {

@@ -1,16 +1,42 @@
+//Index 0 = Archipel des Glenans/Concarneau, Index 1 = Ile d'Arz, Index 2 = Marseillan
+const locationIds = ['D4pfmQAB', '3aCLJQA2', '3a8y4QAA'];
+
+//Implementing a Hash Table Data Structure
+class HashTable {
+    constructor(){
+        this.table = new Array(12)
+        this.size = 0;
+    }
+    _hash(key){
+        let hash = 0;
+        for (let i = 0; i < key.length; i++){
+
+        }
+    }
+}
+
+//make a hashmap?
+//['Catamaran', 'Dériveur', 'Windsurf']
+//['1', '2', '3', '4', '4FFV']
+
+
+const makeLink = (obj) => {
+    let locIndex = obj['location'];
+    let supportIndex = obj['support'];
+    let levelIndex = obj['level'];
+    console.log(`Current Location is ${currentLocation}`);
+    console.log(`Current Support is ${currentSupport}`);
+    console.log(`Current Level is ${currentLevel}`);
+
+    let loc = locationIds[locIndex];
+    return `https://www.glenans.asso.fr/stages/${type}location=a070Y00000${loc}`
+}
+
+
 //WRITE FUNCTION TO MAKE REQUESTED COURSE LINK HERE
-
-//WINDSURF
-//NIV: 1/2, 3/4 OU 4FFV
-//LOC: CONCAR, MARSEILLAN
-
-//CATAMARAN
-//NIV: 1, 2, 3, 4, 4FFV
-//LOC: CONCAR, ILE D'ARZ/VANNES, MARSEILLAN
-
-//DERIVEUR
-//NIV: 1/2, 3, 4, 4FFV
-//LOC: CONCAR, ILE D'ARZ/VANNES, MARSEILLAN
+//WINDSURF || NIV: 1/2, 3/4 OU 4FFV || LOC: CONCAR, MARSEILLAN
+//CATAMARAN || NIV: 1, 2, 3, 4, 4FFV || LOC: CONCAR, ILE D'ARZ/VANNES, MARSEILLAN
+//DERIVEUR || NIV: 1/2, 3, 4, 4FFV || LOC: CONCAR, ILE D'ARZ/VANNES, MARSEILLAN
 
 //NIV 1/2 A CONCAR - https://www.glenans.asso.fr/stages/windsurf-niveaux-1-2--01t0Y0000099ZvqQAE?location=a070Y00000D4pfmQAB
 //NIV 3/4 A CONCAR - https://www.glenans.asso.fr/stages/windsurf-niveaux-3-4--01t0Y0000099ZvTQAU?location=a070Y00000D4pfmQAB
@@ -53,8 +79,8 @@
 //NIVEAU 3 ET 4 PLANCHE = windsurf-niveaux-3-4--01t0Y0000099ZvTQAU
 //NIVEAU 4FFV PLANCHE = niveau-technique-4-ffv-windsurf--01t0Y0000099ZxXQAU
 
-//NIVEAU 1 CATA
-//NIVEAU 2 CATA
+//NIVEAU 1 CATA = catamaran-niveau-1--01t0Y0000099Zy6QAE
+//NIVEAU 2 CATA = 
 //NIVEAU 3 CATA 
 //NIVEAU 4 CATA
 //NIVEAU 4FFV CATA 
@@ -64,7 +90,3 @@
 //NIVEAU 3 CATA 
 //NIVEAU 4 CATA
 //NIVEAU 4FFV CATA 
-
-//CONCAR = a070Y00000D4pfmQAB
-//MARSEILLAN = a070Y000003aCLJQA2
-//ILE DARZ = a070Y000003a8y4QAA
