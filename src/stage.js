@@ -11,24 +11,24 @@ class StageRequested {
         //map of weeks to prices and spots which are both strings
         this.weekInfo = new Map();
     }
-    get pageUrl() {
-        return this.pageUrl;
-    }
-    set pageUrl(url) {
-        this.pageUrl = url;
-    }
-    get stageName(){
-        return this.stageName;
-    }
-    set stageName(name){
-        this.stageName = name;
-    }
-    get weekInfo(){
-        return this.weekInfo;
-    }
-    set weekInfo(map){
-        this.weekInfo = map;
-    }
+    // get pageUrl() {
+    //     return this.pageUrl;
+    // }
+    // set pageUrl(url) {
+    //     this.pageUrl = url;
+    // }
+    // get stageName(){
+    //     return this.stageName;
+    // }
+    // set stageName(name){
+    //     this.stageName = name;
+    // }
+    // get weekInfo(){
+    //     return this.weekInfo;
+    // }
+    // set weekInfo(map){
+    //     this.weekInfo = map;
+    // }
 }
 
 class StageFound {

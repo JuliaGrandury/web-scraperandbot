@@ -1,7 +1,7 @@
 const locationIds = {
     'Archipel de Glénan': 'D4pfmQAB',
-    'Île d\'Arz': '3aCLJQA2',
-    'Marseillan': '3a8y4QAA'
+    'Île d\'Arz': '3a8y4QAA',
+    'Marseillan': '3aCLJQA2'
 }
 
 const types = {
@@ -23,6 +23,9 @@ const types = {
 }
 
 const makeLink = (obj) => {
+    if(typeof obj !== 'object'){
+        throw new TypeError('Error: Only an object can be passed into this function');
+    }
     let loc = locationIds[obj['location']];
     let type = types[obj['support'] + obj['level']];
     return `https://www.glenans.asso.fr/stages/${type}?location=a070Y00000${loc}`;

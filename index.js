@@ -9,9 +9,8 @@ promptUser()
             pw: userInput['password']
         }
         const currentStage = new StageRequested(userInput['location'], userInput['support'], userInput['level']);
-        
         //setting url of stage instance to the url made in madeLink
-        currentStage.setUrl = makeLink(currentStage);
+        currentStage.pageUrl = makeLink(currentStage);
         console.log(currentStage);
     })
 
