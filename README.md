@@ -114,10 +114,11 @@ You will need to have Node.js and npm package manager installed. If you do not, 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
-* https://www.geeksforgeeks.org/how-to-send-email-using-node-js/
-* https://stackoverflow.com/questions/45478293/username-and-password-not-accepted-when-using-nodemailer
-* https://www.youtube.com/watch?v=Va9UKGs1bwI
+Some helpful resources I used for various parts of my project.
+* On using RegExp and .split for formatting while keeping the seperator in the result: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+* On using array methods such as .join(), .filter()
+* On using string methods such as .replaceAll(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
+* On using nodemailer: https://www.youtube.com/watch?v=Va9UKGs1bwI
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

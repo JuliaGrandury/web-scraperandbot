@@ -11,9 +11,15 @@ promptUser()
         const currentStage = new StageRequested(userInput['location'], userInput['support'], userInput['level']);
         
         //setting url of stage instance to the url made in madeLink
-        StageRequested.currentUrl = makeLink(currentStage);
+        currentStage.setUrl = makeLink(currentStage);
+
+        console.log(currentStage);
     })
-    //use StageRequested.currentUrl to send webscraper to right address now
+
+
+
+    //use stage instance to scrape the web
+
 
 
 //send prompt info to scraping
@@ -21,6 +27,7 @@ promptUser()
 //use email and pw to log in
 //logIn(userEmail, userPw);
 //send formatting info to email
+
 //print formatting info
 //send prompt info to res bot
 

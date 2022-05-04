@@ -2,12 +2,10 @@
   "name": "puppeteer-project",
   "version": "1.0.0",
   "description": "",
-  "main": "scrape.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "scrape": "node scrape.js",
-    "option": "node option.js",
-    "promptuser": "node promptuser.js",
+    "start": "node index.js",
     "test": "mocha"
   },
   "author": "",

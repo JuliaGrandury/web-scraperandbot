@@ -1,19 +1,35 @@
 //FORMATTING THE WEEKS DATA INTO AN ARRAY OF STRINGS such as 'samedi 16 avril'
 const formatWeeks = (weeks) => {
     //remove the accent on "août" bc it interferes with regex expression
-    weeks = weeks.replaceAll('û', 'u')
-    //split the string between letters and numbers and rejoin it with spaces
-    var arrayPostRegex = weeks.match(/[a-z]+|[^a-z]+/gi)
-    weeks = arrayPostRegex.join(' ')
-    //split the string where there are weekdays
-    var tempArr = weeks.split(/sam|ven/)
-    tempArr = formatMonths(tempArr)
-    //add the weekday before each array element and remove the first empty one
-    const weeksArr = []
-    for (let i = 1; i < tempArr.length; i++) {
-        weeksArr[i - 1] = 'samedi' + tempArr[i]
+    weeks = weeks.replaceAll('û', 'u');
+
+    //split the string where there are numbers and rejoin it with spaces
+    let arrayPostRegex = weeks.match(/[a-z]+|[^a-z]+/gi);
+    weeks = arrayPostRegex.join(' ');
+
+    //split the string where there are weekdays (sam or ven)
+    let tempArr = weeks.split(/(sam)|(ven)/)
+    tempArr = tempArr.filter(element => element !== '')
+    tempArr = tempArr.filter(element => element !== undefined)
+
+    //change months from abbreviated to full
+    tempArr = formatMonths(tempArr);
+
+    //change sam and ven to samedi and vendredi
+    for (let i = 0; i < tempArr.length; i++) {
+        if (tempArr[i] == 'sam') {
+            tempArr[i] = 'samedi';
+        } else if (tempArr[i] == 'ven') {
+            tempArr[i] = 'vendredi';
+        }
     }
-    return weeksArr
+
+    //join days with numbers and months
+    let finalArr = [];
+    for (let j = 0; j < tempArr.length; j += 2) {
+        finalArr.push(tempArr[j] + tempArr[j + 1]);
+    }
+    return finalArr;
 }
 
 //HELPER FUNCTION TO FORMAT THE MONTHS
@@ -55,7 +71,6 @@ const formatMonths = (array) => {
                 break;
             default:
                 break;
-            //console.log('None of the months applied')
         }
     }
     return array;
@@ -82,16 +97,17 @@ const formatPrices = (prices) => {
 }
 
 //FORMATTING ALL OF THE DATA BEFORE PRINTING
-const printSummary = (stage) => {
+const fetchSummary = (stage) => {
     const today = new Date();
     const date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
     console.log(`Summary of your requested courses on ${date}:`);
 
-    console.log(`For the ${stage.name} at the ${stage.location} location:`)
-    var number = stage.weeks.length
+    console.log(`For the ${stage.type} at the ${stage.location} location:`);
+    var number = stage.weeks.length;
     for (let i = 0; i < number; i++) {
-        console.log(`There are ${stage.remainingSpots[i]} spots left for the week of ${stage.weeks[i]} for the price of ${stage.prices[i]}`);
+        console.log(`There are ${stage.spots[i]} spots left for the week of ${stage.weeks[i]} at the price of ${stage.prices[i]}`);
     }
 }
 
-export { formatSpots, formatWeeks, formatPrices, printSummary };
+export { formatSpots, formatWeeks, formatPrices, fetchSummary };
+
