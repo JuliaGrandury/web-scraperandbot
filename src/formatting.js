@@ -1,6 +1,9 @@
 //FORMATTING THE WEEKS DATA INTO AN ARRAY OF STRINGS such as 'samedi 16 avril'
 const formatWeeks = (weeks) => {
-    
+    if (typeof weeks !== 'string'){
+        throw new TypeError('Error: Only a string can be passed into this function');
+    }
+
     //remove the accent on "août" bc it interferes with regex expression
     weeks = weeks.replaceAll('û', 'u');
 
@@ -30,6 +33,7 @@ const formatWeeks = (weeks) => {
     for (let j = 0; j < tempArr.length; j += 2) {
         finalArr.push(tempArr[j] + tempArr[j + 1]);
     }
+    console.log(finalArr);
     return finalArr;
 }
 
@@ -99,16 +103,17 @@ const formatPrices = (prices) => {
 
 //FORMATTING ALL OF THE DATA BEFORE PRINTING
 const fetchSummary = (stage) => {
+    let resultArr = [];
+
     const today = new Date();
     const date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
-    console.log(`Summary of your requested courses on ${date}:`);
-
-    console.log(`For the ${stage.type} at the ${stage.location} location:`);
-    var number = stage.weeks.length;
-    for (let i = 0; i < number; i++) {
-        console.log(`There are ${stage.spots[i]} spots left for the week of ${stage.weeks[i]} at the price of ${stage.prices[i]}`);
+    resultArr.push(`Summary of your requested courses on ${date}:`);
+    resultArr.push(`For the ${stage.type} at the ${stage.location} location:`);
+    for (let i = 0; i < stage.weeks.length; i++) {
+        resultArr.push(`There are ${stage.spots[i]} spots left for the week of ${stage.weeks[i]} at the price of ${stage.prices[i]}`);
     }
+    return resultArr;
 }
 
-export { formatSpots, formatWeeks, formatPrices, fetchSummary };
+export { formatWeeks, formatMonths, formatSpots, formatPrices, fetchSummary };
 

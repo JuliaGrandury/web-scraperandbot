@@ -95,6 +95,9 @@ You will need to have Node.js and npm package manager installed. If you do not, 
    ```sh
    npm run start
    ```
+   
+To test the whole suite run: `npm test`
+To test individuals files run: `npm test <filepath>`
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -115,10 +118,11 @@ You will need to have Node.js and npm package manager installed. If you do not, 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 Some helpful resources I used for various parts of my project.
-* On using RegExp and .split for formatting while keeping the seperator in the result: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+* On using RegExp and .split for formatting while keeping the separator in the result: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
 * On using array methods such as .join(), .filter()
 * On using string methods such as .replaceAll(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
 * On using nodemailer: https://www.youtube.com/watch?v=Va9UKGs1bwI
+* On array testing in Mocha: https://victorleungtw.medium.com/testing-with-mocha-array-comparison-e9a45b57df27
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>

@@ -12,7 +12,6 @@ promptUser()
         
         //setting url of stage instance to the url made in madeLink
         currentStage.setUrl = makeLink(currentStage);
-
         console.log(currentStage);
     })
 

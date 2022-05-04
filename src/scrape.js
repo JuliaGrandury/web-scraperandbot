@@ -23,16 +23,15 @@ async function scrapePage(url) {
             }
         })
         const $ = cheerio.load(pageData.html);
-        console.log(pageData);
+        //console.log(pageData);
 
         const stageName = $('.aqua-titlepanel--title-large--text').text();
         const stageLocation = $('.aqua-internship--city').text();
         const stageWeeks = formatWeeks($('.aqua-calendar--date>p').text());
         const stageRemainingSpots = formatSpots($('.aqua-calendar--duration-last-places').text());
         const stagePrices = formatPrices($('.aqua-calendar--date-price-amount').text());
-
-        //const extracted = new StageFound(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
-        //fetchSummary(extracted);
+        const extracted = new StageFound(stageName, stageLocation, stageWeeks, stageRemainingSpots, stagePrices);
+        fetchSummary(extracted);
 
         await browser.close();
     }
