@@ -92,10 +92,7 @@ You will need to have Node.js and npm package manager installed. If you do not, 
 MAIL_EMAIL = 'your email'
 MAIL_PASSWORD = 'your password'
 
-4. Run the application using 
-   ```sh
-   npm run start
-   ```
+4. Run the application using `npm run start`
 5. Run the test suite using `npm test` or a specific file using `npm test <filepath>`
 
 
