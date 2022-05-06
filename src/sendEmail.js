@@ -16,7 +16,7 @@ function sendEmail(userCreds, emailBody) {
     });
 
     let mailConfigurations = {
-        from: 'glenanswebscraper@gmail.com',
+        from: process.env.MAIL_EMAIL,
         to: emailRecipient,
         subject: 'Summary of your Requested Courses',
         html: emailBody.toString()
