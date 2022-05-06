@@ -86,17 +86,19 @@ You will need to have Node.js and npm package manager installed. If you do not, 
    ```
 2. Install dependencies
    ```sh
-   npm cheerio puppeteer prompts mocha chai dotenv
+   npm cheerio puppeteer prompts mocha chai dotenv nodemailer
    ```
-3. Create a .env file 
+3. Create a .env file where with two variables which will be used as the sender for the sendEmail function. You will need to disable two factor authorization and allow less trusted apps in your Gmail settings.
+MAIL_EMAIL = 'your email'
+MAIL_PASSWORD = 'your password'
 
 4. Run the application using 
    ```sh
    npm run start
    ```
-   
-To test the whole suite run: `npm test`
-To test individuals files run: `npm test <filepath>`
+5. Run the test suite using `npm test` or a specific file using `npm test <filepath>`
+
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -106,6 +108,7 @@ To test individuals files run: `npm test <filepath>`
 
 - [X] Sending summary email of results
 - [X] Expanding sign in to the email and password provided
+- [ ] Finish unit testing
 - [ ] Submitting reservation of courses
 - [ ] Confirmation email that reservation was made
 - [ ] Automating as job every three days
