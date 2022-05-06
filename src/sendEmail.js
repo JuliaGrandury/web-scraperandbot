@@ -2,7 +2,11 @@ import nodemailer from 'nodemailer';
 import dotenv from 'dotenv';
 dotenv.config();
 
-function sendEmail(emailRecipient, emailBody) {
+function sendEmail(userCreds, emailBody) {
+
+    console.log('Send Email Function is called');
+    let emailRecipient = userCreds['email'];
+
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -15,22 +19,17 @@ function sendEmail(emailRecipient, emailBody) {
         from: 'glenanswebscraper@gmail.com',
         to: emailRecipient,
         subject: 'Summary of your Requested Courses',
-        html: emailBody
+        html: emailBody.toString()
     };
 
     transporter.sendMail(mailConfigurations, function (err, data) {
         if (err) {
             console.log('Error ' + err);
         } else {
-            console.log('Email was sent successfully')
+            console.log(`An email summarizing your requested courses was sent to your provided email ${emailRecipient}`)
         }
     })
 }
-
-// let emailRecipient = 'juliagrandu@gmail.com';
-// let emailBody = 'hey homey, you\'re amazing';
-
-sendEmail('juliagrandu@gmail.com', 'hey homey, you\'re amazing');
 
 export { sendEmail };
 

@@ -33,7 +33,6 @@ const formatWeeks = (weeks) => {
     for (let j = 0; j < tempArr.length; j += 2) {
         finalArr.push(tempArr[j] + tempArr[j + 1]);
     }
-    console.log(finalArr);
     return finalArr;
 }
 

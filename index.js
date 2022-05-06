@@ -1,31 +1,17 @@
 import { promptUser } from "./src/promptuser.js";
-import { StageRequested } from "./src/stage.js";
-import { makeLink } from "./src/makelink.js";
+import { scrapePage } from "./src/scrape.js";
+import { sendEmail } from "./src/sendemail.js";
+import { requested } from "./src/promptuser.js";
 
-promptUser()
-    .then(function (userInput) {
-        let userCreds = {
-            email: userInput['email'],
-            pw: userInput['password']
-        }
-        const currentStage = new StageRequested(userInput['location'], userInput['support'], userInput['level']);
-        //setting url of stage instance to the url made in madeLink
-        currentStage.pageUrl = makeLink(currentStage);
-        console.log(currentStage);
-    })
+async function runProgram() {
+    console.log('Running the program')
+    //prompting user
+    const userCreds = await promptUser();
+    //combine scrape and login and pass in url and user creds
+    const emailBody = await scrapePage(requested.pageUrl, userCreds);
+    //finish by sending email with body retrieved from scrape
+    const end = await sendEmail(userCreds, emailBody);
+}
 
-
-
-    //use stage instance to scrape the web
-
-
-
-//send prompt info to scraping
-//send scraping info to formatting
-//use email and pw to log in
-//logIn(userEmail, userPw);
-//send formatting info to email
-
-//print formatting info
-//send prompt info to res bot
+runProgram();
 

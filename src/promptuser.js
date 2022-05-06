@@ -1,4 +1,6 @@
 import prompts from 'prompts';
+import { StageRequested } from './stage.js';
+import { makeLink } from './makelink.js';
 
 const answers = [
     {
@@ -47,11 +49,26 @@ const answers = [
     }
 ];
 
+const requested = new StageRequested();
+
 async function promptUser() {
+    console.log('Prompt User function is called');
     const responses = await prompts(answers);
-    console.log(responses);
-    return responses;
+
+    //make link for scraper
+    //const requested = new StageRequested(responses['location'], responses['support'], responses['level']);
+    requested.location = responses['location'];
+    requested.support = responses['support'];
+    requested.level = responses['level']
+    requested.pageUrl = makeLink(requested);
+
+    //return credentials for scraper
+    let userCreds = {
+        'email': responses['email'],
+        'password': responses['password']
+    }
+    return userCreds;
 }
 
-export { promptUser };
+export { promptUser, requested };
 

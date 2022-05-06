@@ -1,34 +1,17 @@
 class StageRequested {
-    constructor(location, support, level) {
-        this.location = location;
-        this.support = support;
-        this.level = level;
-
+    constructor() {
+        this.location;
+        this.support;
+        this.level;
         //url of requested course made from makeLink
-        this.pageUrl = String;
+        this.pageUrl;
         //reference name as shown on website
-        this.stageName = String;
+        this.stageName;
         //map of weeks to prices and spots which are both strings
         this.weekInfo = new Map();
+        //an array of summary strings
+        this.summary;
     }
-    // get pageUrl() {
-    //     return this.pageUrl;
-    // }
-    // set pageUrl(url) {
-    //     this.pageUrl = url;
-    // }
-    // get stageName(){
-    //     return this.stageName;
-    // }
-    // set stageName(name){
-    //     this.stageName = name;
-    // }
-    // get weekInfo(){
-    //     return this.weekInfo;
-    // }
-    // set weekInfo(map){
-    //     this.weekInfo = map;
-    // }
 }
 
 class StageFound {

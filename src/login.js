@@ -2,11 +2,11 @@ import puppeteer from "puppeteer";
 import dotenv from 'dotenv';
 dotenv.config();
 
-const loginURL = 'https://www.glenans.asso.fr/utilisateur/identification'
-const userEmail = process.env.USER_EMAIL
-const userPw = process.env.USER_PW
+// const userEmail = process.env.USER_EMAIL
+// const userPw = process.env.USER_PW
 
-const logIn = async (userEmail, userPw) => {
+const loginURL = 'https://www.glenans.asso.fr/utilisateur/identification'
+const logIn = async (userEmail, userPw, loginURL) => {
     
     const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
@@ -31,3 +31,4 @@ const logIn = async (userEmail, userPw) => {
 };
 
 export {logIn};
+
