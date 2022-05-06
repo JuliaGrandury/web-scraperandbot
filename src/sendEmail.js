@@ -26,7 +26,7 @@ function sendEmail(userCreds, emailBody) {
         if (err) {
             console.log('Error ' + err);
         } else {
-            console.log(`An email summarizing your requested courses was sent to your provided email ${emailRecipient}`)
+            console.log(`An email summarizing your requested courses was sent to your provided email: ${emailRecipient}`)
         }
     })
 }
