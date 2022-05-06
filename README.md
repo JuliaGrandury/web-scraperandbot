@@ -86,9 +86,11 @@ You will need to have Node.js and npm package manager installed. If you do not, 
    ```
 2. Install dependencies
    ```sh
-   npm cheerio puppeteer prompt prompt-choices mocha
+   npm cheerio puppeteer prompts mocha chai dotenv
    ```
-3. Run the application using 
+3. Create a .env file 
+
+4. Run the application using 
    ```sh
    npm run start
    ```
