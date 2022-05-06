@@ -102,9 +102,10 @@ To test individuals files run: `npm test <filepath>`
 <!-- ROADMAP -->
 ## Roadmap
 
-- [X] Sending email of result summary
-- [ ] Expanding sign in to the email and password provided
-- [ ] Submitting reservation of courses 
+- [X] Sending summary email of results
+- [X] Expanding sign in to the email and password provided
+- [ ] Submitting reservation of courses
+- [ ] Confirmation email that reservation was made
 - [ ] Automating as job every three days
 
 
@@ -116,8 +117,6 @@ To test individuals files run: `npm test <filepath>`
 ## Acknowledgements
 Some helpful resources I used for various parts of my project.
 * On using RegExp and .split for formatting while keeping the separator in the result: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
-* On using array methods such as .join(), .filter()
-* On using string methods such as .replaceAll(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll
 * On using nodemailer: https://www.youtube.com/watch?v=Va9UKGs1bwI
 * On array testing in Mocha: https://victorleungtw.medium.com/testing-with-mocha-array-comparison-e9a45b57df27
 

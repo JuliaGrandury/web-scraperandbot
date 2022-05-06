@@ -1,19 +1,19 @@
 import prompts from 'prompts';
 import { StageRequested } from './stage.js';
-import { makeLink } from './makelink.js';
+import { makeLink } from './makeLink.js';
 
 const answers = [
     {
         name: 'email',
         type: 'text',
         validate: email => email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),
-        message: 'Please enter your account email',
+        message: 'Please enter your Les Glénans account email',
         warn: 'Please enter a valid email'
     },
     {
         name: 'password',
         type: 'password',
-        message: 'Please enter your account password'
+        message: 'Please enter your Les Glénans account password'
     },
     {
         name: 'location',
@@ -52,11 +52,10 @@ const answers = [
 const requested = new StageRequested();
 
 async function promptUser() {
-    console.log('Prompt User function is called');
+
     const responses = await prompts(answers);
 
     //make link for scraper
-    //const requested = new StageRequested(responses['location'], responses['support'], responses['level']);
     requested.location = responses['location'];
     requested.support = responses['support'];
     requested.level = responses['level']
