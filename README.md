@@ -59,6 +59,8 @@
 * Sends Summarized Data: Summarizes all of the extracted data into a human readable summary sent in an email after every run
 * Makes a Reservation: Makes a reservation for the specific course on the specific date
 
+Note: To make a reservation, a Les Glénans account is required. If the email and password you provided when prompted do not correspond to a registered account the program will return before making a reservation but after sending the summary of your requested courses.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
