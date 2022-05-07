@@ -107,6 +107,7 @@ You will need to have Node.js and npm package manager installed. If you do not, 
 - [X] Sending summary email of results
 - [X] Expanding sign in to the email and password provided
 - [ ] Finish unit testing
+- [ ] Fix formatting of email body to be clearer
 - [ ] Submitting reservation of courses
 - [ ] Confirmation email that reservation was made
 - [ ] Automating as job every three days
