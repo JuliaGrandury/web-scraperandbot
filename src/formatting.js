@@ -1,18 +1,18 @@
 //FORMATTING THE WEEKS DATA INTO AN ARRAY OF STRINGS such as 'samedi 16 avril'
 const formatWeeks = (weeks) => {
-    if (typeof weeks !== 'string'){
+    if (typeof weeks !== 'string') {
         throw new TypeError('Error: Only a string can be passed into this function');
     }
 
-    //remove the accent on "août" bc it interferes with regex expression
+    //remove "août" accent due to regex expression interference
     weeks = weeks.replaceAll('û', 'u');
 
     //split the string where there are numbers and rejoin it with spaces
     let arrayPostRegex = weeks.match(/[a-z]+|[^a-z]+/gi);
     weeks = arrayPostRegex.join(' ');
 
-    //split the string where there are weekdays (sam or ven)
-    let tempArr = weeks.split(/(sam)|(ven)/)
+    //split the string where there are weekdays (sam, ven, jeu) and turn into array
+    let tempArr = weeks.split(/(sam|ven|jeu)/)
     tempArr = tempArr.filter(element => element !== '')
     tempArr = tempArr.filter(element => element !== undefined)
 
@@ -25,6 +25,8 @@ const formatWeeks = (weeks) => {
             tempArr[i] = 'samedi';
         } else if (tempArr[i] == 'ven') {
             tempArr[i] = 'vendredi';
+        } else if (tempArr[i] == 'jeu') {
+            tempArr[i] = 'jeudi';
         }
     }
 
@@ -38,6 +40,9 @@ const formatWeeks = (weeks) => {
 
 //HELPER FUNCTION TO FORMAT THE MONTHS
 const formatMonths = (array) => {
+    if (!Array.isArray(array) || typeof array === "string") {
+        throw new TypeError('Error: Only an array can be passed into this function');
+    }
     for (let i = 0; i < array.length; i++) {
         const exp = array[i].replace(/[0-9]/g, '')
         switch (exp) {
@@ -82,6 +87,9 @@ const formatMonths = (array) => {
 
 //FORMATTING THE SPOTS DATA INTO AN ARRAY OF NUMBERS
 const formatSpots = (spots) => {
+    if (typeof spots !== 'string') {
+        throw new TypeError('Error: Only a string can be passed into this function');
+    }
     const tempArr = spots.split('.')
     for (let i = 0; i < tempArr.length; i++) {
         tempArr[i] = tempArr[i].charAt(0);
@@ -92,6 +100,9 @@ const formatSpots = (spots) => {
 
 //FORMATTING THE PRICE DATA INTO AN ARRAY OF STRINGS
 const formatPrices = (prices) => {
+    if (typeof prices !== 'string') {
+        throw new TypeError('Error: Only a string can be passed into this function');
+    }
     const tempArr = prices.split('€')
     for (let i = 0; i < tempArr.length; i++) {
         tempArr[i] = tempArr[i] + '€';
@@ -107,6 +118,7 @@ const fetchSummary = (stage) => {
     const today = new Date();
     const date = (today.getMonth() + 1) + '-' + today.getDate() + '-' + today.getFullYear();
     resultArr.push(`Summary of your requested courses on ${date}:`);
+
     resultArr.push(`For the ${stage.type} at the ${stage.location} location:`);
     for (let i = 0; i < stage.weeks.length; i++) {
         resultArr.push(`There are ${stage.spots[i]} spots left for the week of ${stage.weeks[i]} at the price of ${stage.prices[i]}`);

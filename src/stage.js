@@ -24,5 +24,14 @@ class StageFound {
     }
 }
 
-export { StageRequested, StageFound };
+//used to facilitate testing purposes
+class TestStage {
+    constructor(location, support, level) {
+        this.location = location;
+        this.support = support;
+        this.level = level;
+    }
+}
+
+export { StageRequested, StageFound, TestStage };
 
