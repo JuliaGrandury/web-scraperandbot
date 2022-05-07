@@ -3,10 +3,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 function sendEmail(userCreds, emailBody) {
-
     console.log('Send Email Function is called');
     let emailRecipient = userCreds['email'];
 
+    if(!Array.isArray(emailBody)){
+        emailBody = "Error: The scraping of your requested courses was unsuccessful."
+    }
+    
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -22,11 +25,12 @@ function sendEmail(userCreds, emailBody) {
         html: emailBody.toString()
     };
 
-    transporter.sendMail(mailConfigurations, function (err, data) {
+    transporter.sendMail(mailConfigurations, function (err, info) {
         if (err) {
             console.log('Error ' + err);
         } else {
-            console.log(`An email summarizing your requested courses was sent to your provided email: ${emailRecipient}`)
+            console.log(`An email summarizing your requested courses was sent to your provided email: ${emailRecipient}`);
+            return info.response;
         }
     })
 }
