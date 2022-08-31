@@ -6,7 +6,7 @@
   </a>
   <h3 align="center">Web Scraper and Reservation Bot for "Les Glénans" Sailing School</h3>
   <p align="center">
-    Feel free to adapt this web scraper and reservation bot to something you might need
+    In the interest of saving time and completing tedious tasks
     <br />
     <br />
     <a href="#">View Demo</a>
